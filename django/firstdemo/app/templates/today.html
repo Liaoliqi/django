@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>历史上的今天</title>
+    <style>
+        h2{margin-bottom:0;}
+        .my-item{
+            box-sizing: border-box;
+            border: 1px solid #efefef;
+            padding: 2vw;
+            box-shadow:5px 5px 5px #999 inset;
+            margin-top:3vh;
+        }
+        .my-image{
+            display:block;
+            margin:0 auto;
+            max-width: 100%;
+            max-height:40vh;
+        }
+        .my-title{
+            text-align: center;
+            color:#ffb0b0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="my-title">历史上的今天</h1>
+    <div id="my_content">
+        {% for val in arrData %}
+            {% if forloop.first %}
+                <div class="my-item" style="margin-top:0;">
+            {% else %}
+                <div class="my-item">
+            {% endif %}
+                {% if val.pic != "" %}
+                    <img src="{{val.pic}}" class="my-image"></img>
+                {% endif %}
+                <h2>{{ val.title }}</h2>
+                <!--<span style="display:block;margin-top:5px;">{{ val.year }}-{{ val.month }}-{{ val.day }}（{{val.lunar}}）</span>-->
+                <div style="margin-top:3vh">{{val.des}}</div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
